@@ -23,6 +23,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -185,6 +186,7 @@
     <Content Include="apiapp.json" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\AcquaintServiceDemo - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\app-acquaint - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\app-acquaint - Web Deploy.pubxml" />
   </ItemGroup>
