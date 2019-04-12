@@ -389,7 +389,7 @@
       <Name>Acquaint.ModelContracts</Name>
     </ProjectReference>
     <ProjectReference Include="AndroidBindings\Identity.Android.Bindings\Identity.Android.Bindings.csproj">
-      <Project>{6A5DEDB8-6DA9-47BA-B22C-9674721CF480}</Project>
+      <Project>{AB1F3567-010C-4277-BAFF-BCCB360955F3}</Project>
       <Name>Identity.Android.Bindings</Name>
     </ProjectReference>
   </ItemGroup>
