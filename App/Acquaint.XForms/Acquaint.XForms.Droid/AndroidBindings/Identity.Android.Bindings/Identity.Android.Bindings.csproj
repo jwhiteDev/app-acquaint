@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F96D67EF-8BFE-4ADD-9A3D-AF27BC9778D0}</ProjectGuid>
+    <ProjectGuid>{6A5DEDB8-6DA9-47BA-B22C-9674721CF480}</ProjectGuid>
     <ProjectTypeGuids>{10368E6C-D01B-4462-8E8B-01FC667A7035};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -42,13 +42,34 @@
   </ItemGroup>
   <ItemGroup>
     <LibraryProjectZip Include="appcenter-identity-1.11.5-53+e75483410.aar" />
+    <LibraryProjectZip Include="appcenter-1.11.5-53+e75483410.aar" />
+    <LibraryProjectZip Include="common-0.0.10-SNAPSHOT.aar" />
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
+    <LibraryProjectZip Include="msal-0.2.2-SNAPSHOT.aar" />
   </ItemGroup>
   <ItemGroup>
     <TransformFile Include="Transforms\Metadata.xml" />
     <TransformFile Include="Transforms\EnumFields.xml" />
     <TransformFile Include="Transforms\EnumMethods.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="jcip-annotations-1.0-1.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="gson-2.8.4.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="nimbus-jose-jwt-5.7.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="accessors-smart-1.2.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="json-smart-2.3.jar" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferenceJar Include="asm-5.0.4.jar" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="GeneratedBindingInfo.txt" />
