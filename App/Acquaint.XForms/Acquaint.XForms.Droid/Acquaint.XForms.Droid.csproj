@@ -388,6 +388,10 @@
       <Project>{ED10B823-AA77-4142-919F-6A42C4D087A9}</Project>
       <Name>Acquaint.ModelContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="AndroidBindings\Binding_AppcenterIdentity\Binding_AppcenterIdentity.csproj">
+      <Project>{4E3A3457-DED1-4D65-80F1-7535796A4708}</Project>
+      <Name>Binding_AppcenterIdentity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\alvingray.jpg" />
