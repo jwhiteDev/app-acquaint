@@ -1,0 +1,30 @@
+Binding for:
+com.microsoft.appcenter:appcenter-identity:+
+
+Dependencies:
+
+appcenter-identity-1.11.5-53+e75483410.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.microsoft.appcenter\appcenter-identity\1.11.5-53+e75483410\fc69c53c3c95cd899e6ef97f0e71c3259a987fa7\appcenter-identity-1.11.5-53+e75483410.aar
+	common-1.1.0.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.1.0\8007981f7d7540d89cd18471b8e5dcd2b4f99167\common-1.1.0.jar
+	runtime-1.1.0.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.core\runtime\1.1.0\dabc0064464782c5014c7e8be5e93bd76466c41\runtime-1.1.0.aar
+	common-1.1.0.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.1.0\edf3f7bfb84a7521d0599efa3b0113a0ee90f85\common-1.1.0.jar
+	livedata-core-1.1.0.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\livedata-core\1.1.0\d6827a080a137fa345a0ed4a438e14e5633e0032\livedata-core-1.1.0.aar
+	runtime-1.1.0.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\runtime\1.1.0\95428e5f6bf6875a6a1125d2157c3836a1a837f5\runtime-1.1.0.aar
+	viewmodel-1.1.0.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\viewmodel\1.1.0\74ee369b874da61b5b81bebd7b8df0c2577309c8\viewmodel-1.1.0.aar
+	animated-vector-drawable-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\animated-vector-drawable\27.1.1\88c2fb880a3e8c902b8f247197509d489e8a3501\animated-vector-drawable-27.1.1.aar
+	appcompat-v7-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\appcompat-v7\27.1.1\22b1ef4ff9ef1a3513c18eb132d597eac6ef1a86\appcompat-v7-27.1.1.aar
+	customtabs-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\customtabs\27.1.1\f26576e3f16f4374b2defa6388e1a0b5b615f841\customtabs-27.1.1.aar
+	support-annotations-27.1.1.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.1.1\39ded76b5e1ce1c5b2688e1d25cdc20ecee32007\support-annotations-27.1.1.jar
+	support-compat-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-compat\27.1.1\a55ad550d0b84c7fec7ecca012690636062c0e64\support-compat-27.1.1.aar
+	support-core-ui-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-core-ui\27.1.1\f9acdb8a4c3a9fe883fd7fa5efd3f0426bb9dcda\support-core-ui-27.1.1.aar
+	support-core-utils-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-core-utils\27.1.1\b3a7a4040fda0c5138dbc8c477103b6723b9dbe6\support-core-utils-27.1.1.aar
+	support-fragment-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-fragment\27.1.1\eb8053ebf038b7561c29e5e8964664fac05f375e\support-fragment-27.1.1.aar
+	support-vector-drawable-27.1.1.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.android.support\support-vector-drawable\27.1.1\7ffbee6bc80535389f182e559aa279b81b372202\support-vector-drawable-27.1.1.aar
+	jcip-annotations-1.0-1.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.github.stephenc.jcip\jcip-annotations\1.0-1\ef31541dd28ae2cefdd17c7ebf352d93e9058c63\jcip-annotations-1.0-1.jar
+	gson-2.8.4.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.4\d0de1ca9b69e69d1d497ee3c6009d015f64dad57\gson-2.8.4.jar
+	appcenter-1.11.5-53+e75483410.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.microsoft.appcenter\appcenter\1.11.5-53+e75483410\eab570087f37e467afdf57ef864eee1b476e8a49\appcenter-1.11.5-53+e75483410.aar
+	msal-0.2.2-SNAPSHOT.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.microsoft.identity.client\msal\0.2.2-SNAPSHOT\19e8ea96ce7b29b9eef55af64a9d859bf83bc1a6\msal-0.2.2-SNAPSHOT.aar
+	common-0.0.10-SNAPSHOT.aar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.microsoft.identity\common\0.0.10-SNAPSHOT\a3d6236983e6043ee8cf3e65864f546b5dc3354d\common-0.0.10-SNAPSHOT.aar
+	nimbus-jose-jwt-5.7.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\com.nimbusds\nimbus-jose-jwt\5.7\c25f756c77bd038bb3f2de8611fd243667bd6569\nimbus-jose-jwt-5.7.jar
+	accessors-smart-1.2.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\net.minidev\accessors-smart\1.2\c592b500269bfde36096641b01238a8350f8aa31\accessors-smart-1.2.jar
+	json-smart-2.3.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\net.minidev\json-smart\2.3\7396407491352ce4fa30de92efb158adb76b5b\json-smart-2.3.jar
+	asm-5.0.4.jar,    Path=C:\Users\dolewis\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\5.0.4\da08b8cce7bbf903602a25a3a163ae252435795\asm-5.0.4.jar
