@@ -8,6 +8,9 @@ using Microsoft.Practices.ServiceLocation;
 using MvvmHelpers;
 using Plugin.Messaging;
 using Xamarin.Forms;
+using Microsoft.AppCenter.Auth;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
 
 namespace Acquaint.XForms
 {
@@ -40,6 +43,8 @@ namespace Acquaint.XForms
         Command _NewAcquaintanceCommand;
 
         Command _ShowSettingsCommand;
+
+        Command _SignIn;
 
 		void SetDataSource()
 		{
@@ -136,6 +141,34 @@ namespace Acquaint.XForms
                 return _ShowSettingsCommand ??
                     (_ShowSettingsCommand = new Command(async () => await ExecuteShowSettingsCommand()));
             }
+        }
+
+        public Command ShowSignIn
+        {
+            get
+            {
+                return _SignIn ?? (_SignIn = new Command(async () => await ExecuteSignIn()));
+            }
+        }
+
+        async Task ExecuteSignIn()
+        {
+            try
+            {
+               var result =  await Auth.SignInAsync();
+                Analytics.TrackEvent("signin id" + result.AccountId);
+                MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.DisplayAlert, new MessagingServiceAlert()
+                {
+                    Title = "Sign In success.",
+                    Message = $"user id {result.AccountId}",
+                    Cancel = "OK"
+                });
+            }
+            catch (System.Exception e)
+            {
+                Crashes.TrackError(e);
+            }
+            //todo hide button
         }
 
         async Task ExecuteShowSettingsCommand()
