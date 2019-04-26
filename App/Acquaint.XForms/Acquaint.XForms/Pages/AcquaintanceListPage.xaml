@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Acquaint.XForms.AcquaintanceListPage" xmlns:local="clr-namespace:Acquaint.XForms" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations" x:Name="acquaintanceListPage" NavigationPage.BackButtonTitle="List">
 	<ContentPage.Resources>
 		<ResourceDictionary>
@@ -8,8 +8,6 @@
 	<ContentPage.ToolbarItems>
     <!-- The Refresh ToolBarItem is only for UWP. See code-behind. -->
     <ToolbarItem x:Name="refreshToolbarItem" Icon="refresh.png" Text="Refresh" Command="{Binding RefreshAcquaintancesCommand}" />
-    <!-- The Settings ToolBarItem is present on all platforms. -->
-        <ToolbarItem x:Name="settingsToolbarItem" Icon="settings.png" Text="Settings" Command="{Binding ShowSettingsCommand}" />
         <ToolbarItem x:Name="signInToolbarItem" Text="{Binding SignInOut.SignedInState}" Command="{Binding ShowSignIn}" />
     <!-- The Add Acquaintance ToolBarItem is removed for Android. See code-behind.  -->
 		<ToolbarItem x:Name="addAcquaintanceToolbarItem" Icon="add.png" Text="New" Command="{Binding NewAcquaintanceCommand}" />

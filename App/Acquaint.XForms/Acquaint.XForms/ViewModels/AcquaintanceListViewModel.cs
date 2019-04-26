@@ -42,8 +42,6 @@ namespace Acquaint.XForms
 
         Command _NewAcquaintanceCommand;
 
-        Command _ShowSettingsCommand;
-
         Command _SignIn;
       
 
@@ -132,18 +130,6 @@ namespace Acquaint.XForms
             await PushAsync(new AcquaintanceEditPage() { BindingContext = new AcquaintanceEditViewModel() });
         }
 
-        /// <summary>
-        /// Command to show settings
-        /// </summary>
-        public Command ShowSettingsCommand
-        {
-            get
-            {
-                return _ShowSettingsCommand ??
-                    (_ShowSettingsCommand = new Command(async () => await ExecuteShowSettingsCommand()));
-            }
-        }
-
         public Command ShowSignIn
         {
             get
@@ -182,19 +168,6 @@ namespace Acquaint.XForms
                 Crashes.TrackError(e);
             }
             OnPropertyChanged("SignInOut");
-        }
-
-        async Task ExecuteShowSettingsCommand()
-        {
-            var navPage = new NavigationPage(
-                new SettingsPage() { BindingContext = new SettingsViewModel() })
-            {
-                BarBackgroundColor = Color.FromHex("547799")
-            };
-            
-            navPage.BarTextColor = Color.White;
-
-            await PushModalAsync(navPage);
         }
 
         Command _DialNumberCommand;
