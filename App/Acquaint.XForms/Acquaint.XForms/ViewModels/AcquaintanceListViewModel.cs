@@ -45,6 +45,7 @@ namespace Acquaint.XForms
         Command _ShowSettingsCommand;
 
         Command _SignIn;
+      
 
 		void SetDataSource()
 		{
@@ -151,12 +152,24 @@ namespace Acquaint.XForms
             }
         }
 
+        OvservableBool _signedIn;
+        public OvservableBool SignInOut
+        {
+            get { return _signedIn ?? (_signedIn = new OvservableBool(false)); }
+        }
+
         async Task ExecuteSignIn()
         {
+            if (SignInOut.IsSignedIn)
+            {
+                Auth.SignOut();
+                SignInOut.IsSignedIn = false;
+            }
             try
             {
                var result =  await Auth.SignInAsync();
                 Analytics.TrackEvent("signin id" + result.AccountId);
+                SignInOut.IsSignedIn = true;
                 MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.DisplayAlert, new MessagingServiceAlert()
                 {
                     Title = "Sign In success.",
@@ -168,7 +181,7 @@ namespace Acquaint.XForms
             {
                 Crashes.TrackError(e);
             }
-            //todo hide button
+            OnPropertyChanged("SignInOut");
         }
 
         async Task ExecuteShowSettingsCommand()

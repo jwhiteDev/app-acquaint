@@ -28,5 +28,18 @@ namespace Acquaint.Models
 		[Version]
 		public byte[] Version { get; set; }
 	}
+
+    public class OvservableBool : ObservableObject
+    {
+        public OvservableBool(bool signedIn)
+        {
+            IsSignedIn = signedIn;
+        }
+        public bool IsSignedIn { get; set; }
+        public string SignedInState
+        {
+             get { return IsSignedIn ? "Sign Out" : "Sign In"; }
+        }
+    }
 }
 
