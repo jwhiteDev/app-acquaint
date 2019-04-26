@@ -42,8 +42,32 @@ namespace Acquaint.Data
 
 		public async Task<IEnumerable<Acquaintance>> GetItems()
 		{
-
             await EnsureInitialized().ConfigureAwait(false);
+            _Acquaintances = new List<Acquaintance>();
+
+            try
+            {
+                
+                // public docs
+                var result = await AcData.Data.ListAsync<Acquaintance>(AcData.DefaultPartitions.AppDocuments);
+                _Acquaintances.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
+
+                // now for user docs
+                result = null;
+                result = await AcData.Data.ListAsync<Acquaintance>(AcData.DefaultPartitions.UserDocuments);
+                _Acquaintances.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
+                if (!result.Any())
+                {
+                    //if there are none, how sad, lets add some.
+                    await GenerateAcquaintances();
+                }
+            }
+            catch (Exception e)
+            {
+                Crashes.TrackError(e);
+            }
+
+            
 
             return await Task.FromResult(_Acquaintances.OrderBy(x => x.LastName)).ConfigureAwait(false);
         }
@@ -142,28 +166,8 @@ namespace Acquaint.Data
 			{
 				await CreateFile(_RootFolder, _FileName).ConfigureAwait(false);
 			}
+            _Acquaintances = new List<Acquaintance>();
 
-            try
-            {
-                _Acquaintances = new List<Acquaintance>();
-                AcData.PaginatedDocuments<Acquaintance> result;
-                do
-                {
-                    result = await AcData.Data.ListAsync<Acquaintance>(AcData.DefaultPartitions.AppDocuments);
-                    _Acquaintances.AddRange(result.CurrentPage.Items.Select(a=>a.DeserializedValue));
-                }
-                while (result.HasNextPage);
-                //Microsoft.AppCenter.Auth.Auth.
-                if (_Acquaintances.Count < 1)
-                {
-                   await GenerateAcquaintances();
-                }
-            }
-            catch(Exception e)
-            {
-                Crashes.TrackError(e);
-                return;
-            }
 
 			//if (string.IsNullOrWhiteSpace(await GetFileContents(await GetFile(_RootFolder, _FileName).ConfigureAwait(false)).ConfigureAwait(false)))
 			//{

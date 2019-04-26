@@ -166,6 +166,7 @@ namespace Acquaint.XForms
                 Auth.SignOut();
                 SignInOut.IsSignedIn = false;
                 OnPropertyChanged("SignInOut");
+                await ExecuteLoadAcquaintancesCommand();
                 return;
             }
             try
@@ -186,6 +187,7 @@ namespace Acquaint.XForms
                 Crashes.TrackError(e);
             }
             OnPropertyChanged("SignInOut");
+            await ExecuteLoadAcquaintancesCommand();
         }
 
         async Task ExecuteShowSettingsCommand()
