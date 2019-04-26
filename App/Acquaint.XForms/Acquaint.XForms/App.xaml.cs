@@ -47,9 +47,7 @@ namespace Acquaint.XForms
 
             AppCenter.LogLevel = LogLevel.Verbose;
             AppCenter.Start("android=e2a89d4b-929c-4936-9b70-e33ace1ac02c;uwp=34d5ed40-4ff1-4db4-9ef6-0eefbf97e8ab;ios=7056d0a8-3a01-49e4-8fca-f5eff47839df", typeof(Analytics), typeof(Auth), typeof(Crashes), typeof(AcData.Data) );
-            Analytics.TrackEvent("StartCalled"+ System.DateTime.Now.ToString("HH:MM"));
-
-
+            Analytics.TrackEvent("StartCalled",new System.Collections.Generic.Dictionary<string,string> {{ "StartTime",System.DateTime.Now.ToString("HH:MM")}});
         }
 
         /// <summary>

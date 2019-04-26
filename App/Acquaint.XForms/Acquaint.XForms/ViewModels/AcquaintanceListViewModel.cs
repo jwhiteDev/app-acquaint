@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Microsoft.AppCenter.Auth;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
+using System;
 
 namespace Acquaint.XForms
 {
@@ -164,18 +165,21 @@ namespace Acquaint.XForms
             {
                 Auth.SignOut();
                 SignInOut.IsSignedIn = false;
+                OnPropertyChanged("SignInOut");
+                return;
             }
             try
             {
                var result =  await Auth.SignInAsync();
-                Analytics.TrackEvent("signin id" + result.AccountId);
+                Analytics.TrackEvent("signin id", new System.Collections.Generic.Dictionary<string, string>(){ { "AccountId", result.AccountId } });
                 SignInOut.IsSignedIn = true;
-                MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.DisplayAlert, new MessagingServiceAlert()
-                {
-                    Title = "Sign In success.",
-                    Message = $"user id {result.AccountId}",
-                    Cancel = "OK"
-                });
+                //MessagingService.Current.SendMessage<MessagingServiceAlert>(MessageKeys.DisplayAlert, new MessagingServiceAlert()
+                //{
+                //    Title = "Sign In success.",
+                //    Message = $"user id {result.AccountId}",
+                //    Cancel = "OK"
+                //});
+
             }
             catch (System.Exception e)
             {
