@@ -22,7 +22,7 @@ namespace Acquaint.Util
 			ImageCacheDurationHours = ImageCacheDurationHoursDefault;
 		}
 
-		public static bool IsUsingLocalDataSource => DataPartitionPhrase == "UseLocalDataSource";
+        public static bool IsUsingLocalDataSource => true;// DataPartitionPhrase == "UseLocalDataSource";
 
 		public static event EventHandler OnDataPartitionPhraseChanged;
 

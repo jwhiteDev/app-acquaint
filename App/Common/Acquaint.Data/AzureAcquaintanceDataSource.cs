@@ -12,6 +12,8 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using PCLStorage;
+using AcData = Microsoft.AppCenter.Data;
+using Microsoft.AppCenter.Crashes;
 
 namespace Acquaint.Data
 {
@@ -19,7 +21,7 @@ namespace Acquaint.Data
     {
 		public AzureAcquaintanceSource()
 		{
-			OnDataSyncError += (object sender, DataSyncErrorEventArgs<Acquaintance> e) => {
+            OnDataSyncError += (object sender, DataSyncErrorEventArgs<Acquaintance> e) => {
                 // In and old version of Acquaint, we were presenting an error message instead of auto-handling. This is where you could wire up a message to show to the user.
 				// ServiceLocator.Current.GetInstance<IDataSyncConflictMessagePresenter>().PresentConflictMessage();
 			};
@@ -80,12 +82,35 @@ namespace Acquaint.Data
         {
             return await Execute<bool>(async () =>
             {
-                item.DataPartitionId = _DataPartitionId;
-
-                await Initialize().ConfigureAwait(false);
-                await _AcquaintanceTable.InsertAsync(item).ConfigureAwait(false);
-                await SyncItemsAsync().ConfigureAwait(false);
+                var data = new Acquaintance()
+                {
+                    City = "Redmond",
+                    Company = "Contoso",
+                    CreatedAt = DateTime.UtcNow - TimeSpan.FromDays(100),
+                    Email = "support@contoso.com",
+                    FirstName = "Contoso",
+                    LastName = "Support",
+                    State = "Wa",
+                    Street = "17777 NE 76th Street",
+                    PostalCode = "98052",
+                    Phone = "425-555-1212"
+                };
+                try
+                {
+                    await AcData.Data.CreateAsync<Acquaintance>("1", data, AcData.DefaultPartitions.UserDocuments);
+                }
+                catch(Exception e)
+                {
+                    Crashes.TrackError(e);
+                    return false;
+                }
                 return true;
+                //item.DataPartitionId = _DataPartitionId;
+
+                //await Initialize().ConfigureAwait(false);
+                //await _AcquaintanceTable.InsertAsync(item).ConfigureAwait(false);
+                //await SyncItemsAsync().ConfigureAwait(false);
+                //return true;
             }, false).ConfigureAwait(false);
         }
 
