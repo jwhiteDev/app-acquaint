@@ -185,6 +185,7 @@ namespace Acquaint.XForms
             catch (System.Exception e)
             {
                 Crashes.TrackError(e);
+                return;
             }
             OnPropertyChanged("SignInOut");
             await ExecuteLoadAcquaintancesCommand();
