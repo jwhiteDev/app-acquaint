@@ -6,7 +6,8 @@ using Acquaint.Models;
 using Acquaint.Util;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
-using FFImageLoading.Forms.Touch;
+using FFImageLoading.Forms.Platform;
+using FFImageLoading.Transformations;
 using Foundation;
 using HockeyApp.iOS;
 using Microsoft.Practices.ServiceLocation;
@@ -25,7 +26,7 @@ namespace Acquaint.XForms.iOS
 
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-			var manager = BITHockeyManager.SharedHockeyManager;
+            var manager = BITHockeyManager.SharedHockeyManager;
 			manager.Configure(Settings.HockeyAppId);
 			manager.StartManager();
 
@@ -51,6 +52,8 @@ namespace Acquaint.XForms.iOS
 
             ConfigureTheming();
 
+            // Woraround for FFImageLoading CircleTransformation not found.
+            var ignore = new CircleTransformation();
             return base.FinishedLaunching(app, options);
         }
 
