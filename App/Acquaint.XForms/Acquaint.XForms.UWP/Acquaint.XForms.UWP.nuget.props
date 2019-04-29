@@ -16,7 +16,6 @@
     <Import Project="$(NuGetPackageRoot)xamarin.forms.maps\2.3.4.231\build\win81\Xamarin.Forms.Maps.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms.maps\2.3.4.231\build\win81\Xamarin.Forms.Maps.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\Doug\.nuget\packages\newtonsoft.json\10.0.2</PkgNewtonsoft_Json>
     <PkgHockeySDK_UWP Condition=" '$(PkgHockeySDK_UWP)' == '' ">C:\Users\Doug\.nuget\packages\hockeysdk.uwp\4.1.5</PkgHockeySDK_UWP>
   </PropertyGroup>
 </Project>
