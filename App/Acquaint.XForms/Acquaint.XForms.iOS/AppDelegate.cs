@@ -6,7 +6,7 @@ using Acquaint.Models;
 using Acquaint.Util;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
-using FFImageLoading.Forms.Platform;
+using FFImageLoading.Forms.Touch;
 using FFImageLoading.Transformations;
 using Foundation;
 using HockeyApp.iOS;
@@ -52,7 +52,7 @@ namespace Acquaint.XForms.iOS
 
             ConfigureTheming();
 
-            // Woraround for FFImageLoading CircleTransformation not found.
+            // Workaround for FFImageLoading CircleTransformation not found.
             var ignore = new CircleTransformation();
             return base.FinishedLaunching(app, options);
         }
