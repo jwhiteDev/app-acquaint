@@ -10,7 +10,6 @@
     "Microsoft.AppCenter.Auth": "2.0.0-r0030-cc6f40e",
     "Microsoft.AppCenter.Crashes": "2.0.0-r0030-cc6f40e",
     "Microsoft.AppCenter.Data": "2.0.0-r0030-cc6f40e",
-    "Microsoft.Azure.Mobile.Client.SQLiteStore": "3.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
     "Newtonsoft.Json": "12.0.2",
     "PCLStorage": "1.0.2",
