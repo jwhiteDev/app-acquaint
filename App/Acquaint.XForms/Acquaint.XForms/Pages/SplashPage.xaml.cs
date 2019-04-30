@@ -22,25 +22,26 @@ namespace Acquaint.XForms
 
             if (_ShouldDelayForSplash)
                 // delay for a few seconds on the splash screen
-                await Task.Delay(3000);
+                await Task.Delay(500);
+
 
             // if a data partition phrase has not yet been set
-            if (string.IsNullOrWhiteSpace(Settings.DataPartitionPhrase))
-            {
-                // modally push a new SetupPage wrapped in a NavigationPage
-                var navPage = new NavigationPage(new SetupPage())
-                {
-                    BarBackgroundColor = Color.FromHex("547799")
-                };
+            //if (string.IsNullOrWhiteSpace(Settings.DataPartitionPhrase))
+            //{
+            //    // modally push a new SetupPage wrapped in a NavigationPage
+            //    var navPage = new NavigationPage(new SetupPage())
+            //    {
+            //        BarBackgroundColor = Color.FromHex("547799")
+            //    };
 
-                navPage.BarTextColor = Color.White;
+            //    navPage.BarTextColor = Color.White;
 
-                await Navigation.PushModalAsync(navPage);
+            //    await Navigation.PushModalAsync(navPage);
 
-                _ShouldDelayForSplash = false;
-            }
-            else
-            {
+            //    _ShouldDelayForSplash = false;
+            //}
+            //else
+            //{
                 // create a new NavigationPage, with a new AcquaintanceListPage set as the Root
                 var navPage = new NavigationPage(
                     new AcquaintanceListPage()
@@ -53,7 +54,7 @@ namespace Acquaint.XForms
 
                 // set the MainPage of the app to the navPage
                 Application.Current.MainPage = navPage;
-            }
+            //}
         }
     }
 }
