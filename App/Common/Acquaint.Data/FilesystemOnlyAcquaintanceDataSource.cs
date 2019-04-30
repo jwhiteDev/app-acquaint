@@ -17,17 +17,12 @@ namespace Acquaint.Data
 	/// </summary>
 	public class FilesystemOnlyAcquaintanceDataSource : IDataSource<Acquaintance>
 	{
-		const string _FileName = "acquaintances.json";
-
-		readonly IFolder _RootFolder;
-
 		bool _IsInitialized;
 
 		List<Acquaintance> _Acquaintances;
 
 		public FilesystemOnlyAcquaintanceDataSource()
 		{
-			_RootFolder = FileSystem.Current.LocalStorage;
 
 			OnDataSyncError += (object sender, DataSyncErrorEventArgs<Acquaintance> e) => {
 				// Do nothing, because we won't have data sync issues with local storage
@@ -81,28 +76,9 @@ namespace Acquaint.Data
 
 		public async Task<bool> AddItem(Acquaintance item)
 		{
-
-            //var data = new Acquaintance()
-            //{
-            //    Id = Guid.NewGuid().ToString(),
-            //    City = "Redmond",
-            //    Company = "Contoso",
-            //    CreatedAt = DateTime.UtcNow - TimeSpan.FromDays(100),
-            //    Email = "support@contoso.com",
-            //    FirstName = "Contoso",
-            //    LastName = "Support",
-            //    State = "Wa",
-            //    Street = "17777 NE 76th Street",
-            //    PostalCode = "98052",
-            //    Phone = "425-555-1212",
-            //};
-
-
-
-
             try
             {
-                await Microsoft.AppCenter.Data.Data.ReplaceAsync(item.Id, item, Microsoft.AppCenter.Data.DefaultPartitions.UserDocuments);
+                await AcData.Data.ReplaceAsync(item.Id, item, AcData.DefaultPartitions.UserDocuments);
                 _Acquaintances.Add(item);
             }
             catch (Exception e)
@@ -110,10 +86,6 @@ namespace Acquaint.Data
                 Crashes.TrackError(e);
                 // return false;
             }
-
-
-			await WriteFile(_RootFolder, _FileName, JsonConvert.SerializeObject(_Acquaintances)).ConfigureAwait(false);
-
 			return true;
 		}
 
@@ -128,8 +100,15 @@ namespace Acquaint.Data
 			
 			_Acquaintances[i] = item;
 
-			await WriteFile(_RootFolder, _FileName, JsonConvert.SerializeObject(_Acquaintances)).ConfigureAwait(false);
-
+            try
+            {
+                await AcData.Data.ReplaceAsync(item.Id, item, AcData.DefaultPartitions.UserDocuments);
+            }
+            catch (Exception e)
+            {
+                Crashes.TrackError(e);
+                // return false;
+            }
 			return true;
 		}
 
@@ -139,7 +118,15 @@ namespace Acquaint.Data
 
 			_Acquaintances.RemoveAll(c => c.Id == item.Id);
 
-			await WriteFile(_RootFolder, _FileName, JsonConvert.SerializeObject(_Acquaintances)).ConfigureAwait(false);
+            try
+            {
+                await AcData.Data.DeleteAsync<Acquaintance>(item.Id,AcData.DefaultPartitions.UserDocuments);
+            }
+            catch (Exception e)
+            {
+                Crashes.TrackError(e);
+                // return false;
+            }
 
 			return true;
 		}
@@ -150,10 +137,6 @@ namespace Acquaint.Data
 
 		async Task Initialize()
 		{
-			if (!await FileExists(_RootFolder, _FileName).ConfigureAwait(false))
-			{
-				await CreateFile(_RootFolder, _FileName).ConfigureAwait(false);
-			}
             _Acquaintances = new List<Acquaintance>();
 
 
@@ -177,34 +160,7 @@ namespace Acquaint.Data
 				await Initialize().ConfigureAwait(false);
 		}
 
-		static async Task<bool> FileExists(IFolder folder, string fileName)
-		{
-			return await Task.FromResult<bool>(await folder.CheckExistsAsync(fileName) == ExistenceCheckResult.FileExists).ConfigureAwait(false);
-		}
-
-		static async Task<IFile> CreateFile(IFolder folder, string fileName)
-		{
-			return await folder.CreateFileAsync(fileName, CreationCollisionOption.OpenIfExists).ConfigureAwait(false);
-		}
-
-		static async Task<IFile> GetFile(IFolder folder, string fileName)
-		{
-			return await folder.GetFileAsync(fileName).ConfigureAwait(false);
-		}
-
-		static async Task WriteFile(IFolder folder, string fileName, string fileContents)
-		{
-			var file = await GetFile(folder, fileName).ConfigureAwait(false);
-
-			await file.WriteAllTextAsync(fileContents).ConfigureAwait(false);
-		}
-
-		static async Task<string> GetFileContents(IFile file)
-		{
-			return await file.ReadAllTextAsync().ConfigureAwait(false);
-		}
-
-		/// <summary>
+			/// <summary>
 		/// Generates the acquaintances.
 		/// </summary>
 		/// <returns>The acquaintances.</returns>
