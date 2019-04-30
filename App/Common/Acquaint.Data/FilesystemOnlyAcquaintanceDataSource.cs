@@ -100,29 +100,17 @@ namespace Acquaint.Data
 
 
 
-            //try
-            //{
-            //    await Microsoft.AppCenter.Data.Data.ReplaceAsync(data.Id, data, Microsoft.AppCenter.Data.DefaultPartitions.UserDocuments);
-            //    MessagingService.Current.SendMessage(MessageKeys.DisplayAlert, new MessagingServiceAlert()
-            //    {
-            //        Title = "Document Created",
-            //        Message = $"id {data.Id}",
-            //        Cancel = "OK"
-            //    });
-            //}
-            //catch (Exception e)
-            //{
-            //    Crashes.TrackError(e);
-            //    MessagingService.Current.SendMessage(MessageKeys.DisplayAlert, new MessagingServiceAlert()
-            //    {
-            //        Title = "Document create Failed",
-            //        Message = $"id {data.Id}",
-            //        Cancel = "OK"
-            //    });
-            //    // return false;
-            //}
+            try
+            {
+                await Microsoft.AppCenter.Data.Data.ReplaceAsync(item.Id, item, Microsoft.AppCenter.Data.DefaultPartitions.UserDocuments);
+                _Acquaintances.Add(item);
+            }
+            catch (Exception e)
+            {
+                Crashes.TrackError(e);
+                // return false;
+            }
 
-            _Acquaintances.Add(item);
 
 			await WriteFile(_RootFolder, _FileName, JsonConvert.SerializeObject(_Acquaintances)).ConfigureAwait(false);
 
