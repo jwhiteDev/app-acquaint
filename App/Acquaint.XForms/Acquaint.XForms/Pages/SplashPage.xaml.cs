@@ -20,9 +20,13 @@ namespace Acquaint.XForms
         {
             base.OnAppearing();
 
+            // call sign out so we start in a "normal"state for the demo
+            
             if (_ShouldDelayForSplash)
-                // delay for a few seconds on the splash screen
-                await Task.Delay(500);
+
+                Microsoft.AppCenter.Auth.Auth.SignOut();
+            // delay for a few seconds on the splash screen
+            await Task.Delay(500);
 
 
             // if a data partition phrase has not yet been set
