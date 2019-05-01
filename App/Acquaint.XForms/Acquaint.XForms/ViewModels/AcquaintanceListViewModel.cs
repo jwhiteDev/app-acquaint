@@ -131,6 +131,7 @@ namespace Acquaint.XForms
         async Task ExecuteNewAcquaintanceCommand()
         {
             await PushAsync(new AcquaintanceEditPage() { BindingContext = new AcquaintanceEditViewModel() });
+            OnPropertyChanged("Acquaintances");
         }
 
         /// <summary>
