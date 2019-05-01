@@ -53,7 +53,6 @@ namespace Acquaint.XForms
 		protected override async void OnAppearing()
 		{
 			base.OnAppearing();
-
 			
 		    await ViewModel.ExecuteLoadAcquaintancesCommand();
 			

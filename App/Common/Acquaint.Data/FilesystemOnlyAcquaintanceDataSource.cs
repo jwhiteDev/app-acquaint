@@ -38,19 +38,19 @@ namespace Acquaint.Data
 		public async Task<IEnumerable<Acquaintance>> GetItems()
 		{
             await EnsureInitialized().ConfigureAwait(false);
-            _Acquaintances = new List<Acquaintance>();
+            var temp  = new List<Acquaintance>();
 
             try
             {
                 
                 // public docs
                 var result = await AcData.Data.ListAsync<Acquaintance>(AcData.DefaultPartitions.AppDocuments);
-                _Acquaintances.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
+                temp.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
 
                 // now for user docs
                 result = null;
                 result = await AcData.Data.ListAsync<Acquaintance>(AcData.DefaultPartitions.UserDocuments);
-                _Acquaintances.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
+                temp.AddRange(result.CurrentPage.Items.Select(a => a.DeserializedValue));
                 if (!result.Any())
                 {
                     //if there are none, how sad, lets add some.
@@ -62,7 +62,7 @@ namespace Acquaint.Data
                 Crashes.TrackError(e);
             }
 
-            
+            _Acquaintances = temp;
 
             return await Task.FromResult(_Acquaintances.OrderBy(x => x.LastName)).ConfigureAwait(false);
         }

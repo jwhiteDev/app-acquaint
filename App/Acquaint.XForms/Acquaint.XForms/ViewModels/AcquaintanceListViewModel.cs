@@ -78,11 +78,11 @@ namespace Acquaint.XForms
 			// set the data source on each load, because we don't know if the data source may have been updated between page loads
 			SetDataSource();
 
-            if (Settings.LocalDataResetIsRequested)
-                _Acquaintances.Clear();
+            ////if (Settings.LocalDataResetIsRequested)
+            //    _Acquaintances.Clear();
 
-            if (Acquaintances.Count < 1 || !Settings.DataIsSeeded || Settings.ClearImageCacheIsRequested)
-                await FetchAcquaintances();
+            //if (Acquaintances.Count < 1 || !Settings.DataIsSeeded || Settings.ClearImageCacheIsRequested)
+           await FetchAcquaintances();
 
             LoadAcquaintancesCommand.ChangeCanExecute();
         }
@@ -131,7 +131,6 @@ namespace Acquaint.XForms
         async Task ExecuteNewAcquaintanceCommand()
         {
             await PushAsync(new AcquaintanceEditPage() { BindingContext = new AcquaintanceEditViewModel() });
-            OnPropertyChanged("Acquaintances");
         }
 
         /// <summary>
@@ -379,6 +378,8 @@ namespace Acquaint.XForms
                 await FetchAcquaintances();
 
                 IsBusy = false;
+
+
             });
         }
     }
