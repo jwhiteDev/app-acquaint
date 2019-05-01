@@ -16,6 +16,7 @@
     <Import Project="$(NuGetPackageRoot)xamarin.forms.maps\2.3.4.231\build\win81\Xamarin.Forms.Maps.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms.maps\2.3.4.231\build\win81\Xamarin.Forms.Maps.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_Bcl_Build Condition=" '$(PkgMicrosoft_Bcl_Build)' == '' ">C:\Users\Doug\.nuget\packages\microsoft.bcl.build\1.0.14</PkgMicrosoft_Bcl_Build>
     <PkgHockeySDK_UWP Condition=" '$(PkgHockeySDK_UWP)' == '' ">C:\Users\Doug\.nuget\packages\hockeysdk.uwp\4.1.5</PkgHockeySDK_UWP>
   </PropertyGroup>
 </Project>
