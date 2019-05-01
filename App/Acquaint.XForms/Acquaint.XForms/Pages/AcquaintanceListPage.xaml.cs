@@ -54,27 +54,9 @@ namespace Acquaint.XForms
 		{
 			base.OnAppearing();
 
-			// The navigation logic startup needs to diverge per platform in order to meet the UX design requirements
-			if (Device.OS != TargetPlatform.Android)
-			{
-			    if (string.IsNullOrWhiteSpace(Settings.DataPartitionPhrase))
-			    {
-			        var navPage = new NavigationPage(new SetupPage())
-			        {
-                        BarBackgroundColor = Color.FromHex("547799")
-                    };
-
-                    navPage.BarTextColor = Color.White;
-
-                    await Navigation.PushModalAsync(navPage);
-			    }
-			    else
-			        await ViewModel.ExecuteLoadAcquaintancesCommand();
-			}
-			else
-			{ 
-				await ViewModel.ExecuteLoadAcquaintancesCommand();
-			}
+			
+		    await ViewModel.ExecuteLoadAcquaintancesCommand();
+			
 		}
 	}
 }
