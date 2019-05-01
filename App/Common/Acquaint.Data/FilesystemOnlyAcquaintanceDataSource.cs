@@ -78,6 +78,7 @@ namespace Acquaint.Data
 		{
             try
             {
+                item.PhotoUrl = "https://mobilecentersdkdev.blob.core.windows.net/aquaint/placeholderProfileImage.png";
                 await AcData.Data.ReplaceAsync(item.Id, item, AcData.DefaultPartitions.UserDocuments);
                 _Acquaintances.Add(item);
             }
