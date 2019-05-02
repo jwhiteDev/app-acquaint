@@ -331,6 +331,8 @@
     <ProjectReference Include="..\..\Common\Acquaint.Common.iOS\Acquaint.Common.iOS.csproj">
       <Project>{D480A440-318D-4CD2-A662-17D6179B14DE}</Project>
       <Name>Acquaint.Common.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
     <ProjectReference Include="..\..\Common\Acquaint.Util\Acquaint.Util.csproj">
       <Project>{1D18D929-1B53-4AF9-9499-14ABB26D257F}</Project>
