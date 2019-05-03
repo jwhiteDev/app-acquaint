@@ -171,19 +171,19 @@
       <HintPath>..\..\packages\Xamarin.FFImageLoading.Forms.2.2.9\lib\portable-net45+win8+wpa81+wp8\FFImageLoading.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter">
-      <HintPath>..\..\packages\Microsoft.AppCenter.2.0.0-r0043-81c6ed4\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.2.0.0-r0044-ee1a5a1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Analytics">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.2.0.0-r0043-81c6ed4\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Analytics.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Analytics.2.0.0-r0044-ee1a5a1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Auth">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Auth.2.0.0-r0043-81c6ed4\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Auth.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Auth.2.0.0-r0044-ee1a5a1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Crashes">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.2.0.0-r0043-81c6ed4\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Crashes.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Crashes.2.0.0-r0044-ee1a5a1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Crashes.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AppCenter.Data">
-      <HintPath>..\..\packages\Microsoft.AppCenter.Data.2.0.0-r0043-81c6ed4\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Data.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AppCenter.Data.2.0.0-r0044-ee1a5a1\lib\portable-net45+win8+wpa81+wp8\Microsoft.AppCenter.Data.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
